@@ -7,7 +7,7 @@ var defaults = {
     //the (unix) time when the genesisblock is created
     time: Math.round((new Date()).getTime() / 1000),
     //the pszTimestamp found in the coinbase of the genesisblock
-    timestamp: "Don't work for weekends, work for our goals.",
+    timestamp: "Yudiz workon Block",
     //the first value of the nonce that will be incremented when searching the genesis hash
     nonce: 1,
     //the PoW algorithm: [x11|x13|x15|geek|quark|keccak|qubit|neoscrypt|lyra2re...]
