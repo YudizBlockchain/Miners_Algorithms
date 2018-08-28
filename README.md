@@ -43,3 +43,14 @@ Different Miner Algorithms in BlockChain
          the value in coins for the output, full value (exp. in bitcoin 5000000000 - To get other coins value: Block Value * 100000000)
       -b BITS, --bits=BITS
          the target in compact representation, associated to a difficulty of 1
+         
+         
+         
+         
+         
+         
+         
+         
+ OutputChain:
+ nonce: 53439
+genesis hash: 000754cd381ea6536d3a6db133293dc91d07a7bd2668f73183beaca37d015f7c
