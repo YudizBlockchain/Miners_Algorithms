@@ -1,7 +1,5 @@
 
 
-
-
 var $ = require("./utils");
 var Hash = require('multi-hashing');
 
@@ -10,7 +8,7 @@ var defaults = {
     timestamp: "Yudiz make Block",
     nonce: 1,
     algorithm: 'geek',
-    pubkey: '04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f',
+    pubkey: '04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf1177f',
     value: 5000000000,
     bits: 0x1e0ffff0,
     locktime: 0
@@ -149,7 +147,7 @@ function PoW(data, options) {
 
         var hash = $.reverseBuffer(Hash[options.algorithm](data)).toString('hex');
        
-        if (hash.match(/^00007/)) {
+        if (hash.match(/^0007/)) {
             console.log("nonce: %s", nonce);
             console.log("genesis hash: %s", hash);
             return;
