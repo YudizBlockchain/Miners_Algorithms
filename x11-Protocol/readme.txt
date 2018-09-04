@@ -1,4 +1,3 @@
-npm init -y
-node-gyp rebuild
-node x11-call.js
-npm install nan node-gyp --save <br />
+
+npm  i shelljs <br />
+node app.js <br />
