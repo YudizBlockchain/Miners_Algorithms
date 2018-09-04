@@ -1,0 +1,19 @@
+{
+  "name": "x11-Algorithm",
+  "version": "1.0.0",
+  "description": "npm init -y node-gyp rebuild node x11-call.js",
+  "main": "x11-call.js",
+  "dependencies": {
+    "nan": "^2.11.0",
+    "node-gyp": "^3.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp rebuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "gypfile": true
+}
