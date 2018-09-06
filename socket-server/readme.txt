@@ -8,3 +8,4 @@ npm server.js
 
 
 
+Note :This script contains miners script at server end so please use it in correct way.
