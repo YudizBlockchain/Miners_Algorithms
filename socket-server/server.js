@@ -47,44 +47,66 @@ server.on("connection", (socket) => {
     //NEW Function called //
 
     socket.emit('prateek', { hello: 'Miner' });
-    socket.on('my-Prateek', function (data) {
+    socket.on('my-Prateek', function (data,callback) {
  
-      const argv = require('yargs')
-          .alias('t', 'time')
-          .alias('z', 'timestamp')
-          .alias('n', 'nonce')
-          .alias('a', 'algorithm')
-          .alias('p', 'pubkey')
-          .alias('v', 'value')
-          .alias('b', 'bits')
-          .alias('l', 'locktime')
-          .alias('h', 'help')
-          .help()
-          .command('*', 'create genesis block', () => { }, (argv) => {
+    
+
+            const argv = require('yargs')
+            .alias('t', 'time')
+            .alias('z', 'timestamp')
+            .alias('n', 'nonce')
+            .alias('a', 'algorithm')
+            .alias('p', 'pubkey')
+            .alias('v', 'value')
+            .alias('b', 'bits')
+            .alias('l', 'locktime')
+            .alias('h', 'help')
+            .help()
+            .command('*', 'create genesis block', () => { }, (argv) => {
+                
               
-            
-      
-              var options = Object.assign({}, defaults, argv);
-         
-              var merkle_root = $.sha256d(createTx(options));
-             
-              var genesisblock = createBlock(merkle_root, options);
-             
-            //   console.log("---------------");
-            //   console.log("algorithm: %s", options.algorithm);
-            //   console.log("pzTimestamp: %s", options.timestamp);
-            //   console.log("pubkey: %s", options.pubkey);
-            //   console.log("bits: %s", options.bits);
-            //   console.log("time: %s", options.time);
-            //   console.log("merkle root hash: %s", $.reverseBuffer(merkle_root).toString('hex'));
-      
-               var sha1;
-             PoW(genesisblock, options);
         
-      
-          })
-          .argv;
-      
+                var options = Object.assign({}, defaults, argv);
+           
+                var merkle_root = $.sha256d(createTx(options));
+               
+                var genesisblock = createBlock(merkle_root, options);
+             
+               var flag='^0000';
+               
+              //   console.log("---------------");
+              //   console.log("algorithm: %s", options.algorithm);
+              //   console.log("pzTimestamp: %s", options.timestamp);
+              //   console.log("pubkey: %s", options.pubkey);
+              //   console.log("bits: %s", options.bits);
+              //   console.log("time: %s", options.time);
+              //   console.log("merkle root hash: %s", $.reverseBuffer(merkle_root).toString('hex'));
+        
+                 var sha1;
+                 callback(genesisblock,options,flag);
+
+               //PoW(genesisblock, options);
+               //flag = validation(genesisblock,options);
+
+              
+              
+               
+            })
+            .argv;
+              
+       
+      function validation(data, options){
+        var nonce = options.nonce;
+         var hash = $.reverseBuffer(Hash[options.algorithm](data)).toString('hex');
+
+         if (hash.match(/^0/)){
+             return true;
+         }
+         else{
+             return false;
+         }
+
+      }
       
       function createInputScript(options) {
           var tz = options.timestamp;
@@ -191,6 +213,7 @@ server.on("connection", (socket) => {
               console.log(hash);
               console.log();
               
+        
       
           while (true) {
       
@@ -226,8 +249,7 @@ server.on("connection", (socket) => {
       
       }
 
-
-
+    
      });
   
 
