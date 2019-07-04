@@ -1,6 +1,9 @@
 
+```
+npm  i shelljs
+```
 
-** npm  i shelljs
+```
+node app.js
+```
 
-
-** node app.js
